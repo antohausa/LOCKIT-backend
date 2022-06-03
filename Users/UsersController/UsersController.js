@@ -13,6 +13,7 @@ client.query('SELECT * FROM dias;', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
+  
   }
   client.end();
 });
