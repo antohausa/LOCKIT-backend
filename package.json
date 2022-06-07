@@ -1,0 +1,19 @@
+{
+  "name": "lockit-backend",
+  "version": "1.0.0",
+  "description": "LOCKIT!",
+  "main": "index.js",
+  "type":"module",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+    
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
