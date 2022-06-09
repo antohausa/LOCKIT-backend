@@ -1,6 +1,9 @@
-//import services
+import getAll from './usersService.js'
+
 export const getUsers = async (req,res) => {
     console.log("aca tenes los usuarios")
+   const all=await getAll();
+    res.send(all)
     //req users to service
 };
 
