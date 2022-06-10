@@ -1,8 +1,11 @@
 import router from './usersRoute.js'
 import express from 'express';
+import bodyParser from 'body-parser';
 
 //const express = require("express");
 const app = express();
+app.use(bodyParser.json()); // Middleware to enable cookies
+
 
 app.get('/', function (req, res) {
     res.send('hola!!!!!!!!!');
