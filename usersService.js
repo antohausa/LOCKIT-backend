@@ -26,17 +26,15 @@ const getAll = async () => {
 
         pool.query('SELECT * FROM dias;', (err, res) => {
 
-            var all = "";
+            
             for (let row of res.rows) {
-
-                all = all + (JSON.stringify(row))
-
+                              
+                const all = JSON.stringify(row)
+                
             }
             pool.end();
             
             return all;
-
-
         })
 
     }

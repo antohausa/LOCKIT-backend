@@ -3,7 +3,8 @@ import getAll from './usersService.js'
 export const getUsers = async (req, res) => {
     console.log("aca tenes los usuarios")
     const all = await getAll();
-    console.log(all)
+    
+    res.json(all)
     //req users to service
 };
 
