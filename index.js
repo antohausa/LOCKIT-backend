@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 const app = express();
 app.use(bodyParser.json()); // Middleware to enable cookies
 
+const PORT = process.env.PORT || 3000;
 
 app.get('/', function (req, res) {
     res.send('hola!!!!!!!!!');
@@ -15,6 +16,6 @@ app.use('/api', router);
 
 
 
-app.listen(3000, () => {
-    console.log("El servidor está inicializado en el puerto 3000");
+app.listen(PORT, () => {
+    console.log(`El servidor está inicializado en el puerto ${PORT}`);
 });
