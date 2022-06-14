@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
     res.send('hola!!!!!!!!!');
 });
 
-app.use('/hola', router);
+app.use('/api', router);
 
 
 
