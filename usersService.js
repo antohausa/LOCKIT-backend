@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
-import { json } from 'express/lib/response';
+
 
 import pkg from 'pg';
 const { Pool } = pkg;
@@ -23,9 +23,12 @@ const pool = new Pool(
 const getAll = async () => {
 
     try {
-        pool.connect();
+       /* let conex = await */pool.connect();
 
-        pool.query('SELECT * FROM dias;', (err, res) => {
+      //  let result = await 
+        let result = pool.query('SELECT * FROM dias;') 
+        return result
+        /*(err, res) => {
 
             /*for (let row of res.rows) {
                               
@@ -33,13 +36,9 @@ const getAll = async () => {
                                 
             }
             */
-            console.log(JSON.stringify(res.rows))
+           
            //return res
-            pool.end();
-            
-            
-        })
-
+           //pool.end();
     }
 
     catch (err) {
