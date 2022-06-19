@@ -1,19 +1,11 @@
-import getAll from '../services/usersService.js'
+import * as svc from '../services/usersService.js'
 
 export const getUsers = async (req, res) => {
    
     console.log("aca tenes los usuarios")
-    const all = await getAll();
+    const all = await svc.getAll();
     res.send(all)
-    //res.send(JSON.stringify({'HOLA':'haaaaaa'}))
-    //res.send(all)
-   // res.send("CONCHA DE TU HERMANA")
-    //req users to service
-    /*catch (err){
-        console.log("ERROR! I'm sorry!!!!!!!")
-        throw err;
-        
-    }*/
+    
 };
 
 export const createUsers = async (req, res) => {
@@ -21,3 +13,23 @@ export const createUsers = async (req, res) => {
     //save users to service
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+//res.send(JSON.stringify({'HOLA':'haaaaaa'}))
+    //res.send(all)
+    //req users to service
+    /*catch (err){
+        console.log("ERROR! I'm sorry!!!!!!!")
+        throw err;
+        
+    }*/

@@ -2,7 +2,6 @@ import 'dotenv/config';
 import express from 'express';
 import pkg from 'pg';
 
-
 //setteo env
 const { Pool } = pkg;
 
@@ -18,14 +17,14 @@ const pool = new Pool(
 
 
 //getALLLLLLLLLLLLL
-const getAll = async () => {
+export const getAll = async () => {
 
     try {
        /* let conex = await */pool.connect();
 
       //  let result = await 
-        let result = pool.query('SELECT * FROM dias;') 
-        return result
+        let result = await pool.query('SELECT * FROM usuarios;')
+        return result.rows;
         
     }
 
@@ -34,9 +33,25 @@ const getAll = async () => {
     }
 }
 
-export default getAll;
+export const createUser = async () => {
+    let filasAfectadas = 0;
+        try {
+            await pool.connect();
+            
+            let result = await pool.request()
+                .input("nombre", sql.VarChar, pizza.nombre)
+                .input("libreGluten", sql.Bit, pizza.libreGluten)
+                .input("importe", sql.Decimal(10, 2), pizza.importe)
+                .input("descripcion", sql.VarChar, pizza.descripcion)
+                .query('INSERT INTO usuarios ("", "", "", "") VALUES ($1, $2, $3, $4');
+                
+                return result.rowsAffected
+        }
+        catch (err) {
+            throw err
+        }
 
-
+}
 
 
 
