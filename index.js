@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 const app = express();
 app.use(bodyParser.json()); // Middleware to enable cookies
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.get('/', function (req, res) {
     res.send('hola!!!!!!!!!');
