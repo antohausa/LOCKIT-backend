@@ -12,9 +12,7 @@ app.get('/', function (req, res) {
     res.send('hola!!!!!!!!!');
 });
 
-app.use('/api', router);
-
-
+// app.use('/api', router);
 
 app.listen(PORT, () => {
     console.log(`El servidor está inicializado en el puerto ${PORT}`);
