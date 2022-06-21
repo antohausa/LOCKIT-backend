@@ -8,7 +8,7 @@ app.use(bodyParser.json()); // Middleware to enable cookies
 
 const PORT = process.env.PORT || 5000;
 
-console.log(proces.env.PORT);
+console.log(process.env.PORT);
 
 app.get('/', function (req, res) {
     res.send('hola!!!!!!!!!');
