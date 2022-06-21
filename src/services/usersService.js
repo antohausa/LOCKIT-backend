@@ -33,17 +33,25 @@ export const getAll = async () => {
     }
 }
 
-export const createUser = async () => {
-    let filasAfectadas = 0;
+export const createUser = async (user) => {
+    //let filasAfectadas = 0;
+    
         try {
             await pool.connect();
             
-            let result = await pool.request()
-                .input("nombre", sql.VarChar, pizza.nombre)
-                .input("libreGluten", sql.Bit, pizza.libreGluten)
-                .input("importe", sql.Decimal(10, 2), pizza.importe)
-                .input("descripcion", sql.VarChar, pizza.descripcion)
-                .query('INSERT INTO usuarios ("", "", "", "") VALUES ($1, $2, $3, $4');
+         
+            let result = await pool.request().query('´INSERT INTO usuarios ("nombre", "apellido", "mail", "contrasenia", "telefono", "fechaNac", "fkRol", "username") VALUES ($1,$2,$3,$4,$5,$5,$6,$7,$8)´', [
+
+                    user.nombre,
+                    user.apellido,
+                    user.mail,
+                    user.contrasenia,
+                    user.telefono,
+                    user.fechaNac,
+                    user.fkRol,
+                    user.username
+                
+                ]);
                 
                 return result.rowsAffected
         }
@@ -62,7 +70,7 @@ export const createUser = async () => {
 
 
 
-
+//.query('INSERT INTO usuarios ("nombre", "apellido", "mail", "contrasenia", "telefono", "fechNac", "fkRol", "username") VALUES (@nombre, @apellido, @mail, @contrasenia, @telefono, @fechNac, @fkRol, @username)');
 
 
 /*(err, res) => {
@@ -76,3 +84,13 @@ export const createUser = async () => {
            
            //return res
            //pool.end();
+
+           /*.input("nombre", user.nombre)
+                .input("apellido", user.apellido)
+                .input("mail", user.mail)
+                .input("contrasenia", user.contrasenia)
+                .input("telefono", user.telefono)
+                .input("fechNac", user.fechNac)
+                .input("fkRol", user.fkRol)
+                .input("username", user.username)
+                */

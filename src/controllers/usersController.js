@@ -1,16 +1,27 @@
 import * as svc from '../services/usersService.js'
 
 export const getUsers = async (req, res) => {
-   
-    console.log("aca tenes los usuarios")
-    const all = await svc.getAll();
-    res.send(all)
-    
+    try {
+        const users = await svc.getAll();
+        res.status(200).send(users)
+    }
+    catch (err) {
+        res.status(500).send({ err })
+    }
+
 };
 
-export const createUsers = async (req, res) => {
-    console.log("creado con exito. slds")
-    //save users to service
+export const createUser = async (req, res) => {
+
+    try {
+        const newUser = req.body
+        const userCreated = await svc.createUser(newUser);
+        res.status(200).send(userCreated)
+    }
+    catch (err) {
+        res.status(500).send({ err })
+    }
+
 };
 
 
@@ -28,8 +39,8 @@ export const createUsers = async (req, res) => {
 //res.send(JSON.stringify({'HOLA':'haaaaaa'}))
     //res.send(all)
     //req users to service
-    /*catch (err){
-        console.log("ERROR! I'm sorry!!!!!!!")
-        throw err;
-        
-    }*/
+/*catch (err){
+    console.log("ERROR! I'm sorry!!!!!!!")
+    throw err;
+    
+}*/
