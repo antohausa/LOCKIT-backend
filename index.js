@@ -1,4 +1,4 @@
-import router from './src/routes/usersRoute.js'
+import router from './src/users/routes/usersRoute.js'
 import express from 'express';
 import bodyParser from 'body-parser';
 
