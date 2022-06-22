@@ -1,7 +1,10 @@
 import router from './src/users/routes/usersRoute.js'
 import express from 'express';
 import bodyParser from 'body-parser';
-import 'dotenv/config'
+// import 'dotenv/config'
+import { config } from 'dotenv'
+
+config();
 
 //const express = require("express");
 const app = express();
