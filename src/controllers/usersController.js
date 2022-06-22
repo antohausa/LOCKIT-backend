@@ -1,4 +1,5 @@
 import * as svc from '../services/usersService.js'
+import userDTO from '../models/User.js'
 
 export const getUsers = async (req, res) => {
     try {
@@ -11,10 +12,25 @@ export const getUsers = async (req, res) => {
 
 };
 
+export const userExistsByUsername = async (req, res) => {
+    try {
+        const user = await svc.userExistsByUsername();
+        res.status(200).send(user)
+    }
+    catch (err) {
+        res.status(500).send({ err })
+    }
+
+};
+
 export const createUser = async (req, res) => {
 
     try {
-        const newUser = req.body
+        const {nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username} = req.body
+        
+        
+ let newUser = new userDTO(nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username);
+
         const userCreated = await svc.createUser(newUser);
         res.status(200).send(userCreated)
     }
