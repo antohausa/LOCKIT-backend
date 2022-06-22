@@ -1,6 +1,7 @@
 import router from './src/users/routes/usersRoute.js'
 import express from 'express';
 import bodyParser from 'body-parser';
+import 'dotenv/config'
 
 //const express = require("express");
 const app = express();
@@ -8,7 +9,7 @@ app.use(bodyParser.json()); // Middleware to enable cookies
 
 const PORT = process.env.PORT || 5000;
 
-console.log(process.env);
+console.log(process.env.PORT);
 
 app.get('/', function (req, res) {
     res.send('hola!!!!!!!!!');
