@@ -11,7 +11,7 @@ export const CorsOptions = {
     credentials: true,
 }
 */
-app.use(cors(CorsOptions))
+//app.use(cors(CorsOptions))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/api', router)
