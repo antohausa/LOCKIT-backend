@@ -20,7 +20,7 @@ const pool = new Pool(
 export const getAll = async () => {
 
     try {
-       /* let conex = await */pool.connect();
+       /* let conex = await */await pool.connect();
 
       //  let result = await 
         let result = await pool.query('SELECT * FROM usuarios;')
@@ -43,7 +43,7 @@ export const createUser = async (user) => {
             await pool.connect();
             
          
-            let result = await pool.request().query('INSERT INTO usuarios ("nombre", "apellido", "mail", "contrasenia", "telefono", "fechaNac", "fkRol", "username") VALUES ($1,$2,$3,$4,$5,$5,$6,$7,$8)', [
+            let result = await pool.request().query('INSERT INTO usuarios("nombre", "apellido", "mail", "contrasenia", "telefono", "fechaNac", "fkRol", "username") VALUES ($1,$2,$3,$4,$5,$6,$7,$8)', [
 
                     user.nombre,
                     user.apellido,
@@ -55,7 +55,7 @@ export const createUser = async (user) => {
                     user.username
                 
                 ]);
-                
+                console.log(result.rowsAffected)
                 return result.rowsAffected
         }
         catch (err) {
