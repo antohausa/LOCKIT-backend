@@ -28,10 +28,10 @@ export const createUser = async (req, res) => {
     try {
         const {nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username} = req.body
         
-        
- let newUser = new userDTO(nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username);
+        console.log(nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username)
+       // let newUser = new userDTO(nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username);
 
-        const userCreated = await svc.createUser(newUser);
+        const userCreated = await svc.createUser(nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username);
         res.status(200).send(userCreated)
     }
     catch (err) {

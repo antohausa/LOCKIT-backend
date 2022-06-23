@@ -33,33 +33,27 @@ export const getAll = async () => {
     }
 }
 
-export const createUser = async (user) => {
+export const createUser = async (nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username) => {
     //let filasAfectadas = 0;
     /*const result = await pool.query('SELECT "idRol" FROM roles WHERE nombre=$1',[user.rol])
     console.log(result.rows)
 */
+       // console.log(user)
+     //   const { nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username } = user
 
         try {
             await pool.connect();
             
          
-            let result = await pool.request().query('INSERT INTO usuarios("nombre", "apellido", "mail", "contrasenia", "telefono", "fechaNac", "fkRol", "username") VALUES ($1,$2,$3,$4,$5,$6,$7,$8)', [
-
-                    user.nombre,
-                    user.apellido,
-                    user.mail,
-                    user.contrasenia,
-                    user.telefono,
-                    user.fechaNac,
-                    user.fkRol,
-                    user.username
-                
-                ]);
+            let result = await pool.query(`INSERT INTO usuarios
+                                                VALUES ('"${nombre}"', '${apellido}', '${mail}', '${contrasenia}', '${telefono}', '${fechaNac}', 'hola', '${fkRol}', '${username}')`);
                 console.log(result.rowsAffected)
                 return result.rowsAffected
         }
         catch (err) {
-            throw err
+            
+            console.log(err)
+            return err
         }
 
 }
