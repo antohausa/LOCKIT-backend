@@ -14,6 +14,6 @@ export const CorsOptions = {
 app.use(cors(CorsOptions))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(router)
+app.use('/api', router)
 
 export default app
