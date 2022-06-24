@@ -16,11 +16,12 @@ const pool = new Pool(
 
 //getALLLLLLLLLLLLL
 export const getAll = async () => {
+    let result=null
     try {
-        console.log("HOOLA ANTO")
+
        await pool.connect();
-       console.log("HOOLA ANTO")
-        let result = await pool.query('SELECT * FROM usuarios;')
+
+    result = await pool.query('SELECT * FROM usuarios;')
         return result.rows;
     }
     catch (err) {
@@ -39,17 +40,19 @@ export const createUser = async (nombre, apellido, mail, contrasenia, telefono, 
 
         try {
             await pool.connect();
-            
+            let result=null
+
          
-            let result = await pool.query(`INSERT INTO usuarios
-                                                VALUES ('${nombre}', '${apellido}', '${mail}', '${contrasenia}', '${telefono}', '${fechaNac}', 'hola', '${fkRol}', '${username}')`);
-                console.log(result.rowsAffected)
-                return result.rowsAffected
+            result = await pool.query(`INSERT INTO usuarios (nombre, apellido, mail, contrasenia, telefono, fechanac, fkrol, username)
+                                                VALUES ('${nombre}', '${apellido}', '${mail}', '${contrasenia}', '${telefono}', '${fechaNac}','${fkRol}', '${username}')`);
+                
+                return result.rowCount
+                
         }
         catch (err) {
             
             console.log(err)
-            return err 
+            throw err 
         }
 
 }

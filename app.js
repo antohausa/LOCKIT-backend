@@ -1,7 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import router from './src/users/Routes/UserRoute.js'
+import UserRouter from './src/users/Routes/UserRoute.js'
+import ProviderRouter from './src/providers/Routes/ProviderRoutes.js'
 
 const app = express()
 /*
@@ -14,6 +15,7 @@ export const CorsOptions = {
 //app.use(cors(CorsOptions))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use('/api', router)
+app.use('/api/users', UserRouter)
+app.use("/api/providers", ProviderRouter)
 
 export default app

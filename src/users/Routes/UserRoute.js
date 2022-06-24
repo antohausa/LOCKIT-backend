@@ -1,13 +1,13 @@
 import { Router } from 'express'
 import * as con from '../Controllers/UserController.js'
 
-const router = Router()
+const UserRouter = Router()
 
-router.get("/", (req, res) => {
+UserRouter.get("/", (req, res) => {
     res.send("OMG HI ANTO!!!!!!")
 })
 
-router.get('/getUsers', con.getUsers)
-router.post('/createUser', con.createUser)
+UserRouter.get('/getUsers', con.getUsers)
+UserRouter.post('/createUser', con.createUser)
 
-export default router;
+export default UserRouter;
