@@ -1,5 +1,5 @@
 import * as svc from '../Services/UserService.js'
-import userDTO from '../models/User.js'
+import userDTO from '../Models/User.js'
 
 export const getUsers = async (req, res) => {
     try {

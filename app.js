@@ -15,6 +15,9 @@ export const CorsOptions = {
 //app.use(cors(CorsOptions))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
 app.use('/api/users', UserRouter)
 app.use("/api/providers", ProviderRouter)
 
