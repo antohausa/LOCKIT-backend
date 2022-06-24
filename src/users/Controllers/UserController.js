@@ -22,7 +22,7 @@ export const userExistsByUsername = async (req, res) => {
         res.status(500).send({ err })
     }
 
-};
+}
 
 export const createUser = async (req, res) => {
 
