@@ -4,8 +4,6 @@ import userDTO from '../Models/User.js'
 export const getUsers = async (req, res) => {
     try {
         const users = await svc.getAll();
-        console.log("FUNCIONO")
-        console.log(users)
         res.status(200).send(users)
     }
     catch (err) {
@@ -28,11 +26,11 @@ export const userExistsByUsername = async (req, res) => {
 
 export const createUser = async (req, res) => {
 
+    console.log(req.body)
     try {
         const {nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username} = req.body
 
        // let newUser = new userDTO(nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username);
-
         const userCreated = await svc.createUser(nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username);
         
    
