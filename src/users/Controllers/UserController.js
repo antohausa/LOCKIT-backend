@@ -4,6 +4,7 @@ import * as svc from '../Services/UserService.js'
 export const getUsers = async (req, res) => {
     try {
         const users = await svc.getAll();
+        console.log(users)
         res.status(200).send(users)
     }
     catch (err) {
