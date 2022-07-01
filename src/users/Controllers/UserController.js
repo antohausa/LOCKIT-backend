@@ -35,7 +35,7 @@ export const createUser = async (req, res) => {
         const userCreated = await svc.createUser(nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username);
         
    
-        res.sendStatus(200).send(userCreated)
+        res.sendStatus(201).send(userCreated)
         
        
         

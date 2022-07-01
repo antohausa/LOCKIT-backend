@@ -13,3 +13,16 @@ export const getProviders = async (req, res) => {
     }
 
 };
+
+export const createProvider = async (req, res) => {
+    try {
+        const providerCreated = await svc.createProvider();
+
+        res.status(201).send(providerCreated)
+    }
+    catch (err) {
+        console.log(err)
+        return res.status(500).json(err)
+    }
+
+};
