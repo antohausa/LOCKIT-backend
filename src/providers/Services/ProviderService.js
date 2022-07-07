@@ -24,10 +24,7 @@ export const getAll = async () => {
     }
 }
 
-export const createProvider = async (nombre_titular, apellido_titular,
-    dni_titular, mail_interno, telefono_interno, razon_social, cuit, nombre_tienda, direccion, ciudad, cp,
-    mail_publico, telefono_publico, logo, portada, img1, img2, img3, img4, descripcion, seguridad, veinticuatrohs,
-    tipo_locker, precio, descuento, barrio, fk_usuario, horarios) => {
+export const createProvider = async (prov) => {
 
     try {
         await pool.connect();
@@ -35,17 +32,17 @@ export const createProvider = async (nombre_titular, apellido_titular,
         const dias =["lunes","martes","miercoles","jueves","viernes","sabado","domingo"]
 
         console.log("LA RE CONCHA DE TU HERMANA")
-        return dias
-
-        // const tienda = await pool.query(`INSERT INTO usuarios (nombre, apellido, mail, contrasenia, telefono, fechanac, fkrol, username)
-        //                                         VALUES ('${nombre_titular}', '${apellido_titular}', '${dni_titular}', '${mail_interno}',
-        //                                         '${telefono_interno}', '${razon_social}','${cuit}', '${nombre_tienda}','${direccion}',
-        //                                         '${ciudad}', '${cp}', '${mail_publico}', '${telefono_publico}', '${descripcion}', 
-        //                                         '${seguridad}', '${veinticuatrohs}', '${tipo_locker}','${precio}','${descuento}', ${barrio}', '${fk_usuario}')`);
+     
+/*
+        const tienda = await pool.query(`INSERT INTO usuarios (nombre, apellido, mail, contrasenia, telefono, fechanac, fkrol, username)
+                                                 VALUES ('${nombre_titular}', '${apellido_titular}', '${dni_titular}', '${mail_interno}',
+                                                '${telefono_interno}', '${razon_social}','${cuit}', '${nombre_tienda}','${direccion}',
+                                                '${ciudad}', '${cp}', '${mail_publico}', '${telefono_publico}', '${descripcion}', 
+                                                '${seguridad}', '${veinticuatrohs}', '${tipo_locker}','${precio}','${descuento}', ${barrio}', '${fk_usuario}')`);
         
                                                 
 
-        /*                                        const idTienda = await pool.query(`SELECT idTienda FROM public.tiendas WHERE cuit='${cuit}'`)
+                                               const idTienda = await pool.query(`SELECT idTienda FROM public.tiendas WHERE cuit='${cuit}'`)
 
         //from here tengo el ID TIENDA
         const imgs = await pool.query(`INSERT INTO imagenes (img1, img2, img3, img4, logo, portada)
@@ -59,7 +56,7 @@ export const createProvider = async (nombre_titular, apellido_titular,
         }
         */
         // pool.end()
-        // return result.rowCount
+        return prov
 
     }
     catch (err) {
