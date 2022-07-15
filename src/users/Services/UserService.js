@@ -30,6 +30,22 @@ export const getAll = async () => {
     }
 }
 
+export const Login = async (username,contrasenia) => {
+    try{
+        await pool.connect();
+        let result=null
+        result = await pool.query(`SELECT contrasenia, username FROM usuarios
+        WHERE contrasenia=${contrasenia} && username=${username}`);
+        return result.rows;
+
+    }
+    catch (err) {
+        console.log(err)
+        return err
+    }
+
+}
+
 export const createUser = async (nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username) => {
     //let filasAfectadas = 0;
     /*const result = await pool.query('SELECT "idRol" FROM roles WHERE nombre=$1',[user.rol])
