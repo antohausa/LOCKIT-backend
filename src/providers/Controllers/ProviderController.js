@@ -1,6 +1,5 @@
 import * as svc from '../Services/ProviderService.js'
 import providerDTO from '../Models/Provider.js'
-import { json } from 'express/lib/response';
 
 export const getProviders = async (req, res) => {
     try {
@@ -30,7 +29,7 @@ export const createProvider = async (req, res) => {
 
         const providerCreated = await svc.createProvider();
 
-        res.status(201).send(json(providerCreated))
+        res.status(201).send(providerCreated)
     }
     catch (err) {
         console.log(err)
