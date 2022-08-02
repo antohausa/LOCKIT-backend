@@ -1,5 +1,6 @@
 import pkg from 'pg';
 
+
 //setteo env
 const { Pool } = pkg;
 
@@ -35,7 +36,7 @@ export const Login = async (username,contrasenia) => {
         await pool.connect();
         let result=null
         result = await pool.query(`SELECT contrasenia, username FROM usuarios
-        WHERE contrasenia=${contrasenia} && username=${username}`);
+        WHERE contrasenia=${contrasenia} && username=${username}`);      
         return result.rows;
 
     }

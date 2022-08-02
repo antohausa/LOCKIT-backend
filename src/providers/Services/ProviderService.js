@@ -31,7 +31,7 @@ export const createProvider = async (prov) => {
         let result = null
         const dias =["lunes","martes","miercoles","jueves","viernes","sabado","domingo"]
 
-        console.log("LA RE CONCHA DE TU HERMANA")
+        console.log("hola")
      
 /*
         const tienda = await pool.query(`INSERT INTO usuarios (nombre, apellido, mail, contrasenia, telefono, fechanac, fkrol, username)
