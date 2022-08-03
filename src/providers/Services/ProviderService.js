@@ -39,7 +39,8 @@ export const createProvider = async (nombre_titular, apellido_titular, dni_titul
                                                 '${ciudad}', '${cp}', '${mail_publico}', '${telefono_publico}', '${descripcion}', 
                                                 '${seguridad}', '${veinticuatrohs}', '${tipo_locker}','${precio}','${descuento}', ${barrio}', '${fk_usuario}')`);
         */
-        const tienda = await pool.query (`INSERT INTO Tiendas(
+    let result=null
+    result = await pool.query (`INSERT INTO Tiendas(
                             nombre_titular, apellido_titular, dni_titular, mail_interno, telefono_interno, razon_social, cuit, nombre_tienda, direccion, ciudad, cp, mail_publico, telefono_publico, descripcion, seguridad, "24hs", tipo_locker, precio, descuento, barrio, fk_usuario)
                             VALUES '${nombre_titular}', '${apellido_titular}', '${dni_titular}', '${mail_interno}',
                             '${telefono_interno}', '${razon_social}','${cuit}', '${nombre_tienda}','${direccion}',
@@ -60,7 +61,7 @@ export const createProvider = async (nombre_titular, apellido_titular, dni_titul
         }
         */
         // pool.end()
-        return tienda
+        return result.rowCount
 
     }
     catch (err) {
