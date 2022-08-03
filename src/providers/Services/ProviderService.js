@@ -33,7 +33,7 @@ export const createProvider = async (prov) => {
 
         console.log("hola")
      
-/*
+
         const tienda = await pool.query(`INSERT INTO usuarios (nombre, apellido, mail, contrasenia, telefono, fechanac, fkrol, username)
                                                  VALUES ('${nombre_titular}', '${apellido_titular}', '${dni_titular}', '${mail_interno}',
                                                 '${telefono_interno}', '${razon_social}','${cuit}', '${nombre_tienda}','${direccion}',
@@ -41,7 +41,7 @@ export const createProvider = async (prov) => {
                                                 '${seguridad}', '${veinticuatrohs}', '${tipo_locker}','${precio}','${descuento}', ${barrio}', '${fk_usuario}')`);
         
                                                 
-
+/*
                                                const idTienda = await pool.query(`SELECT idTienda FROM public.tiendas WHERE cuit='${cuit}'`)
 
         //from here tengo el ID TIENDA
