@@ -40,14 +40,15 @@ export const login = async (username,contrasenia) => {
         .input ('contrasenia',contrasenia)
         .query(`SELECT contrasenia, username FROM usuarios
         WHERE contrasenia=${contrasenia} && username=${username}`);      
-        console.log(result.rows);
-        return result.rows;
+        result=result.recordsets[0];
+        if(result.length==0) return result=null;
 
     }
     catch (err) {
         console.log(err)
         return err
     }
+    return result;
 
 }
 
