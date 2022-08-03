@@ -29,7 +29,7 @@ export const login = async(req,res) =>{
     try{
         const user = await svc.login();
         if (user==null) {
-            return res.status(404).json({message:'no encontrado'})}
+            return res.status(404).json(`no encontrado`)}
         else{
             return res.status(200).send(`britney`)
         }
