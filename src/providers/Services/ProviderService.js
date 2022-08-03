@@ -28,7 +28,6 @@ export const createProvider = async (prov) => {
 
     try {
         await pool.connect();
-        let result = null
         const dias =["lunes","martes","miercoles","jueves","viernes","sabado","domingo"]
 
         console.log("hola")
@@ -56,7 +55,7 @@ export const createProvider = async (prov) => {
         }
         */
         // pool.end()
-        return prov
+        return tienda
 
     }
     catch (err) {
