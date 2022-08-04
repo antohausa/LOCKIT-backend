@@ -27,8 +27,9 @@ export const userExistsByUsername = async (req, res) => {
 
 export const login = async(req,res) =>{
     try{
-        const user = await svc.login();
-        if (user==null) {
+        const {username,contrasenia} = req.body;
+        const user = await svc.login(username, contrasenia);
+        if (user == null) {
             return res.status(404).json(`no encontrado`)}
         else{
             return res.status(200).send(`britney`)
