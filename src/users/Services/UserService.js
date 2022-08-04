@@ -18,6 +18,7 @@ const pool = new Pool(
 //getALLLLLLLLLLLLL
 export const getAll = async () => {
     let result=null
+    console.log(pool);
     try {
 
        await pool.connect();
@@ -37,8 +38,7 @@ export const login = async (username,contrasenia) => {
         await pool.connect();
         let result = null
         
-        result = await pool.request()
-        .input ('username',  username)
+        result = await pool.input ('username',  username)
         .input ('contrasenia',contrasenia)
         .query(`SELECT * FROM usuarios WHERE contrasenia=${contrasenia} AND username=${username}`);      
        
