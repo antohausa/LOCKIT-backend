@@ -38,9 +38,7 @@ export const login = async (username,contrasenia) => {
         await pool.connect();
         let result = null
         
-        result = await pool.input ('username',  username)
-        .input ('contrasenia',contrasenia)
-        .query(`SELECT * FROM usuarios WHERE contrasenia=${contrasenia} AND username=${username}`);      
+        result = await pool.query(`SELECT * FROM usuarios WHERE contrasenia=${contrasenia} AND username=${username}`);      
        
         rta = result.recordsets[0][0];
         
