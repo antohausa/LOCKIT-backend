@@ -32,6 +32,7 @@ export const getAll = async () => {
 }
 
 export const login = async (username,contrasenia) => {
+    let rta = null;
     try{
         await pool.connect();
         let result = null
@@ -41,16 +42,16 @@ export const login = async (username,contrasenia) => {
         .input ('contrasenia',contrasenia)
         .query(`SELECT * FROM usuarios WHERE contrasenia=${contrasenia} AND username=${username}`);      
        
-        result = result.recordsets[0];
+        rta = result.recordsets[0][0];
         
-        if(result.length == 0) return result = null;
+        if(result.length == 0) return rta = null;
+    return rta;
 
     }
     catch (err) {
         console.log(err)
         return err
     }
-    return result;
 
 }
 
