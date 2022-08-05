@@ -35,9 +35,9 @@ export const login = async(req,res) =>{
             return res.status(404).send(`no encontrado`)}
         else{
            // return res.status(200).send(username)
-            jwt.sign({user: userToken},'secretkey',(err, token)=>{
+            jwt.sign({user},'secretkey',(err, token)=>{
                 res.json({
-                    token: token
+                    token
                 })
             })
         }
