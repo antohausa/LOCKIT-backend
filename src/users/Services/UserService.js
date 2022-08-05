@@ -42,8 +42,13 @@ export const login = async (username,contrasenia) => {
        
         rta = result.recordsets[0][0];
         
-        if(rta.length == 0) return null;
-        return rta;
+        if (rta.length == 0 ) {
+            return rta = null; 
+        } 
+        else {
+                    return rta;
+
+        }
 
     }
     catch (err) {
