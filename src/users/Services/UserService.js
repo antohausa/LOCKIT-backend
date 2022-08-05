@@ -34,6 +34,7 @@ export const getAll = async () => {
 
 export const login = async (username,contrasenia) => {
     let rta = null;
+    console.log(username, contrasenia);
     try{
         await pool.connect();
         let result = null

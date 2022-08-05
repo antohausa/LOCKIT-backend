@@ -32,7 +32,7 @@ export const login = async(req,res) =>{
         if (user == null) {
             return res.status(404).send(`no encontrado`)}
         else{
-            return res.status(200).send(user.nombre)
+            return res.status(200).send(username)
         }
 
 }
