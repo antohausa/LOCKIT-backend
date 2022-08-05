@@ -1,5 +1,7 @@
 import * as svc from '../Services/UserService.js'
 // import userDTO from '../models/User.js'
+import jwt from "jsonwebtoken"
+
 
 export const getUsers = async (req, res) => {
     try {
@@ -32,7 +34,12 @@ export const login = async(req,res) =>{
         if (user == null) {
             return res.status(404).send(`no encontrado`)}
         else{
-            return res.status(200).send(username)
+           // return res.status(200).send(username)
+            jwt.sign({user: userToken},'secretkey',(err, token)=>{
+                res.json({
+                    token: token
+                })
+            })
         }
 
 }
