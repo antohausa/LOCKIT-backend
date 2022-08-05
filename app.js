@@ -18,6 +18,6 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 app.use('/api/users', UserRouter)
-app.use("/api/providers", ProviderRouter)
+app.use('/api/providers', ProviderRouter)
 
 export default app
