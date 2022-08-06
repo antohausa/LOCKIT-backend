@@ -45,7 +45,7 @@ export const createProvider = async (nombre_titular, apellido_titular, dni_titul
                             VALUES ('${nombre_titular}', '${apellido_titular}', '${dni_titular}', '${mail_interno}',
                             '${telefono_interno}', '${razon_social}','${cuit}', '${nombre_tienda}','${direccion}',
                             '${ciudad}', '${cp}', '${mail_publico}', '${telefono_publico}', '${descripcion}', 
-                            '${seguridad}', '${veinticuatrohs}', '${tipo_locker}','${precio}','${descuento}', ${barrio}', '${fk_usuario}')`);  
+                            ${seguridad}, ${veinticuatrohs}, ${tipo_locker},${precio},${descuento}, '${barrio}', ${fk_usuario})`);  
 /*
                                                const idTienda = await pool.query(`SELECT idTienda FROM public.tiendas WHERE cuit='${cuit}'`)
 
