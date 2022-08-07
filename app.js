@@ -3,7 +3,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import UserRouter from './src/users/Routes/UserRoute.js'
 import ProviderRouter from './src/providers/Routes/ProviderRoutes.js'
-import AuthRouter from './src/users/Routes/AuthRoute.js'
+//import AuthRouter from './src/users/Routes/AuthRoute.js'
 const app = express()
 /*
 export const CorsOptions = {
