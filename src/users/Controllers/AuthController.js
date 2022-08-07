@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken"
+/*import jwt from "jsonwebtoken"
 
 
 export const createToken = async (id) => {
@@ -6,7 +6,7 @@ export const createToken = async (id) => {
    
        return jwt.sign({id}, 'secretkey', 
        /*{
-       res.json({token}) }*/)
+       res.json({token}) })
     }
     catch(err){
         res.status(500).send ({err})

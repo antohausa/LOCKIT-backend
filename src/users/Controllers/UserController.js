@@ -1,6 +1,7 @@
 import * as svc from '../Services/UserService.js'
 // import userDTO from '../models/User.js'
-import * as auth from './AuthController.js';
+import jwt from "jsonwebtoken"
+
 
 export const getUsers = async (req, res) => {
     try {
@@ -30,12 +31,12 @@ export const login = async (verifyToken, req, res) => {
     try {
         const {username,contrasenia} = req.body;
         const user = await svc.login(username, contrasenia);
-        const token = auth.createToken(user._id);
         if (user == null) {
             return res.status(404).send(`no encontrado`)
         } else {
             // return res.status(200).send(username)
-            return res.status(200).json({token});
+            jwt.sign({user}, 'secretkey', (err, token) => {
+                res.json({token}) })
         }
 
     } catch (err) {
@@ -78,7 +79,7 @@ export const createUser = async ( req, res) => {
 };
 
 
-/*export const verifyToken = async (req, res, next) => {
+export const verifyToken = async (req, res, next) => {
     try {
         const bearerHeader = req.headers['authorization']
         if (typeof bearerHeader !== 'undefined'){}
@@ -92,8 +93,7 @@ export const createUser = async ( req, res) => {
                 err
             })
         }
-}*/
-
+}
 
 
 // export default class UserController {
