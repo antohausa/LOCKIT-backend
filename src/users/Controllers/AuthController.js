@@ -1,4 +1,5 @@
-import * as svc from '../Services/UserService.js'
+import jwt from "jsonwebtoken"
+
 
 export const createToken = async (id) => {
     try{
@@ -11,7 +12,7 @@ export const createToken = async (id) => {
         res.status(500).send ({err})
     }
 }
-export const login = async (verifyToken, req, res) => {
+/*export const login = async (verifyToken, req, res) => {
     try {
         const {username,contrasenia} = req.body;
         const user = await svc.login(username, contrasenia);
@@ -22,7 +23,7 @@ export const login = async (verifyToken, req, res) => {
         } else {
             // return res.status(200).send(username)
             res.cookie('jtw',token, {httpOnly:true})
-            res.stauts(200).json({user: user._id})
+            res.stauts(200).json({token})
             
         }
 

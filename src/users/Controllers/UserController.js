@@ -1,7 +1,6 @@
 import * as svc from '../Services/UserService.js'
 // import userDTO from '../models/User.js'
-import jwt from "jsonwebtoken"
-
+import * as auth from './AuthController.js';
 
 export const getUsers = async (req, res) => {
     try {
@@ -27,16 +26,16 @@ export const userExistsByUsername = async (req, res) => {
 
 }
 
-/*export const login = async (verifyToken, req, res) => {
+export const login = async (verifyToken, req, res) => {
     try {
         const {username,contrasenia} = req.body;
         const user = await svc.login(username, contrasenia);
+        const token = auth.createToken(user._id);
         if (user == null) {
             return res.status(404).send(`no encontrado`)
         } else {
             // return res.status(200).send(username)
-            jwt.sign({user}, 'secretkey', (err, token) => {
-                res.json({token}) })
+            return res.status(200).json({token});
         }
 
     } catch (err) {
@@ -44,7 +43,7 @@ export const userExistsByUsername = async (req, res) => {
             err
         })
     }
-}*/
+}
 
 export const createUser = async ( req, res) => {
 
