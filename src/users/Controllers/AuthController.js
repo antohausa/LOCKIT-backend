@@ -33,7 +33,7 @@ export const login = async (verifyToken, req, res) => {
     }
 }
 
-export const verifyToken = async (req, res, next) => {
+/*export const verifyToken = async (req, res, next) => {
     try {
         const bearerHeader = req.headers['authorization']
         if (typeof bearerHeader !== 'undefined'){}
@@ -47,4 +47,4 @@ export const verifyToken = async (req, res, next) => {
                 err
             })
         }
-}
+}*/

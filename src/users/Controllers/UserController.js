@@ -27,7 +27,7 @@ export const userExistsByUsername = async (req, res) => {
 
 }
 
-export const login = async (verifyToken, req, res) => {
+/*export const login = async (verifyToken, req, res) => {
     try {
         const {username,contrasenia} = req.body;
         const user = await svc.login(username, contrasenia);
@@ -44,7 +44,7 @@ export const login = async (verifyToken, req, res) => {
             err
         })
     }
-}
+}*/
 
 export const createUser = async ( req, res) => {
 
@@ -79,7 +79,7 @@ export const createUser = async ( req, res) => {
 };
 
 
-export const verifyToken = async (req, res, next) => {
+/*export const verifyToken = async (req, res, next) => {
     try {
         const bearerHeader = req.headers['authorization']
         if (typeof bearerHeader !== 'undefined'){}
@@ -93,7 +93,7 @@ export const verifyToken = async (req, res, next) => {
                 err
             })
         }
-}
+}*/
 
 
 
