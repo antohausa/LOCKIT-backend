@@ -20,6 +20,6 @@ app.get('/', (req, res) => {
 })
 app.use('/api/users', UserRouter)
 app.use('/api/providers', ProviderRouter)
-app.use('/api/auth', AuthRouter)
+//app.use('/api/auth', AuthRouter)
 
 export default app
