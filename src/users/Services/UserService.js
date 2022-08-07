@@ -32,33 +32,7 @@ export const getAll = async () => {
     }
 }
 
-export const login = async (username,contrasenia) => {
-    let rta = null;
-    console.log(username, contrasenia);
-    try{
-        await pool.connect();
-        let result = null
-        
-        result = await pool.query(`SELECT * FROM usuarios WHERE contrasenia='${contrasenia}' AND username='${username}'`);      
-        console.log(result);
-       
-        rta = result.rowCount;
-        
-        if (rta == 0 ) {
-            return rta = null; 
-        } 
-        else {
-                    return rta;
 
-        }
-
-    }
-    catch (err) {
-        console.log(err)
-        return err
-    }
-
-}
 
 export const createUser = async (nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username) => {
     //let filasAfectadas = 0;
@@ -88,7 +62,33 @@ export const createUser = async (nombre, apellido, mail, contrasenia, telefono, 
 
 }
 
+export const login = async (username,contrasenia) => {
+    let rta = null;
+    console.log(username, contrasenia);
+    try{
+        await pool.connect();
+        let result = null
+        
+        result = await pool.query(`SELECT * FROM usuarios WHERE contrasenia='${contrasenia}' AND username='${username}'`);      
+        console.log(result);
+       
+        rta = result.rowCount;
+        
+        if (rta == 0 ) {
+            return rta = null; 
+        } 
+        else {
+                    return rta;
 
+        }
+
+    }
+    catch (err) {
+        console.log(err)
+        return err
+    }
+
+}
 
 
 
