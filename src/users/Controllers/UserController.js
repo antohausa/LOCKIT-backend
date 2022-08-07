@@ -27,7 +27,7 @@ export const userExistsByUsername = async (req, res) => {
 
 }
 
-export const login = async (verifyToken, req, res) => {
+export const login = async ( req, res) => {
     try {
         const {username,contrasenia} = req.body;
         const user = await svc.login(username, contrasenia);
