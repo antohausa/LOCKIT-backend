@@ -24,7 +24,7 @@ export const getAll = async () => {
     }
 }
 
-export const getById = async (idTienda) => {
+/*export const getById = async (idTienda) => {
     try {
         await pool.connect();
        // const idTienda = parseInt(request.params.idTienda)
@@ -35,7 +35,7 @@ export const getById = async (idTienda) => {
         console.log(err)
         return err
     }
-}
+}*/
 
 export const createProvider = async (nombre_titular, apellido_titular, dni_titular, mail_interno, telefono_interno, razon_social, cuit, nombre_tienda, direccion, ciudad, cp, mail_publico, telefono_publico, descripcion, seguridad, veinticuatrohs, tipo_locker, precio, descuento, barrio, fk_usuario) => {
 

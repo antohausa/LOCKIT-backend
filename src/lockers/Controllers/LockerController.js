@@ -13,6 +13,21 @@ export const getLockers = async (req, res) => {
     }
 
 };
+export const getById = async ( req, res) => {
+    try {
+        
+       // const idTienda = req.params.id;
+       const {idTienda} = req.body;
+        const tienda = await svc.getById(idTienda);
+
+        res.status(200).json(tienda)
+    }
+    catch (err) {
+        console.log(err)
+        return res.status(500).json(err)
+    }
+
+}
 
 /*export const createProvider = async (req, res) => {
 

@@ -13,7 +13,7 @@ export const getProviders = async (req, res) => {
     }
 
 };
-export const getById = async ( req, res) => {
+/*export const getById = async ( req, res) => {
     try {
         
        // const idTienda = req.params.id;
@@ -27,7 +27,7 @@ export const getById = async ( req, res) => {
         return res.status(500).json(err)
     }
 
-};
+};*/
 
 export const createProvider = async (req, res) => {
 
