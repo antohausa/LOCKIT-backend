@@ -19,7 +19,7 @@ export const getById = async ( req, res) => {
        // const idTienda = req.params.id;
        const {idTienda} = req.body;
         const tienda = await svc.getById(idTienda);
-
+        console.log(tienda)
         res.status(200).json(tienda)
     }
     catch (err) {
