@@ -7,7 +7,7 @@ LockerRouter.get("/", (req, res) => {
     res.send("OMG HI ANTO!!!!!!")
 })
 
-LockerRouter.get('/getLockers', con.getProviders)
+LockerRouter.get('/getLockers', con.getLockers)
 //ProviderRouter.post('/createProvider', con.createProvider)
 
 export default LockerRouter;
