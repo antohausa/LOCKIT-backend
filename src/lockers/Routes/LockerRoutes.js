@@ -8,6 +8,8 @@ LockerRouter.get("/", (req, res) => {
 })
 
 LockerRouter.get('/getLockers', con.getLockers)
+LockerRouter.get('/:idTienda', con.getById)
+
 //ProviderRouter.post('/createProvider', con.createProvider)
 
 export default LockerRouter;
