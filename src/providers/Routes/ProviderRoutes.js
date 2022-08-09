@@ -9,5 +9,7 @@ ProviderRouter.get("/", (req, res) => {
 
 ProviderRouter.get('/getProviders', con.getProviders)
 ProviderRouter.post('/createProvider', con.createProvider)
+ProviderRouter.post('/getById', con.getById)
+
 
 export default ProviderRouter;
