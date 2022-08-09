@@ -24,10 +24,10 @@ export const getAll = async () => {
     }
 }
 
-export const getById = async () => {
+export const getById = async (idTienda) => {
     try {
         await pool.connect();
-        const idTienda = parseInt(request.params.idTienda)
+       // const idTienda = parseInt(request.params.idTienda)
         let result = await pool.query(`SELECT * FROM tiendas WHERE "idTienda" = '${idTienda}' `,)
         return result.rows;
     }
