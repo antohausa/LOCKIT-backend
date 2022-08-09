@@ -13,6 +13,18 @@ export const getProviders = async (req, res) => {
     }
 
 };
+export const getById = async (idTienda, req, res) => {
+    try {
+        const id = await svc.getById(idTienda);
+
+        res.status(200).send(id)
+    }
+    catch (err) {
+        console.log(err)
+        return res.status(500).json(err)
+    }
+
+};
 
 export const createProvider = async (req, res) => {
 
