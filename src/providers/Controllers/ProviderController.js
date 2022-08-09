@@ -15,9 +15,10 @@ export const getProviders = async (req, res) => {
 };
 export const getById = async (idTienda, req, res) => {
     try {
-        const id = await svc.getById(idTienda);
+        const idTienda = req.params.id;
+        const provs = await svc.getById(idTienda);
 
-        res.status(200).send(id)
+        res.status(200).send(provs)
     }
     catch (err) {
         console.log(err)
