@@ -17,7 +17,7 @@ export const getById = async ( req, res) => {
     try {
         
        // const idTienda = req.params.id;
-       const {idTienda} = req.body;
+      // const {idTienda} = req.body;
         const tienda = await svc.getById(idTienda);
 
         res.status(200).json(tienda)
