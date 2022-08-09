@@ -20,9 +20,7 @@ export const userExistsByUsername = async (req, res) => {
         const user = await svc.userExistsByUsername();
         res.status(200).send(user)
     } catch (err) {
-        res.status(500).send({
-            err
-        })
+        res.status(500).send({ err})
     }
 
 }

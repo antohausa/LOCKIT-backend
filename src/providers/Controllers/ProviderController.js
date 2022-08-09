@@ -18,9 +18,9 @@ export const getById = async ( req, res) => {
         
        // const idTienda = req.params.id;
        const {idTienda} = req.body;
-        const provs = await svc.getById(idTienda);
+        const tienda = await svc.getById(idTienda);
 
-        res.status(200).send(provs)
+        res.status(200).json(tienda)
     }
     catch (err) {
         console.log(err)
