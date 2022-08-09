@@ -28,7 +28,7 @@ export const getById = async () => {
     try {
         await pool.connect();
         const idTienda = parseInt(request.params.idTienda)
-        let result = await pool.query('SELECT * FROM public.tiendas WHERE "idTienda" = $1 ;', [idTienda])
+        let result = await pool.query(`SELECT * FROM tiendas WHERE "idTienda" = '${idTienda}' `,)
         return result.rows;
     }
     catch (err) {
