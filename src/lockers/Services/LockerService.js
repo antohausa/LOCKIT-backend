@@ -29,7 +29,7 @@ export const getById = async (idTienda) => {
         await pool.connect();
        // const idTienda = parseInt(request.params.idTienda)
         let result = await pool.query(`SELECT "idLocker", "fkTienda", activo, "fkCliente"
-        FROM lockers l INNER JOIN tiendas ti ON l."fkTienda"= ti."idTienda"  WHERE "idTienda"=$1; `,[idTienda])
+        FROM lockers l INNER JOIN tiendas ti ON l."fkTienda"= ti."idTienda"  WHERE "idTienda"=${idTienda}; `)
         return result.rows;
     }
     catch (err) {
