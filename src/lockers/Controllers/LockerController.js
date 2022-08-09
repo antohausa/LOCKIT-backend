@@ -16,7 +16,7 @@ export const getLockers = async (req, res) => {
 export const getById = async ( req, res) => {
     try {
         
-       const idTienda = req.params.id;
+       const idTienda = req.params.idTienda;
        //const {idTienda} = req.body;
        console.log(idTienda)
         const tienda = await svc.getById(idTienda);
