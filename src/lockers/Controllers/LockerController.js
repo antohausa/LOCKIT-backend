@@ -1,5 +1,5 @@
 import * as svc from '../Services/LockerService.js'
-import lockerDTO from '../Models/Locker.js'
+//import lockerDTO from '../Models/Locker.js'
 
 export const getLockers = async (req, res) => {
     try {

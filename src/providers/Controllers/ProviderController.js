@@ -1,5 +1,5 @@
 import * as svc from '../Services/ProviderService.js'
-import providerDTO from '../Models/Provider.js'
+//import providerDTO from '../Models/Provider.js'
 
 export const getProviders = async (req, res) => {
     try {
