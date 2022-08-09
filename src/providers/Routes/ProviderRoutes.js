@@ -9,7 +9,7 @@ ProviderRouter.get("/", (req, res) => {
 
 ProviderRouter.get('/getProviders', con.getProviders)
 ProviderRouter.post('/createProvider', con.createProvider)
-ProviderRouter.post('/:idTienda', con.getById)
+ProviderRouter.get('/:idTienda', con.getById)
 
 
 export default ProviderRouter;
