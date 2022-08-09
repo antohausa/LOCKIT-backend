@@ -24,11 +24,11 @@ export const getAll = async () => {
     }
 }
 
-export const getById = async (idTienda) => {
+export const getById = async () => {
     try {
         await pool.connect();
-   
-        let result = await pool.query('SELECT * FROM public.tiendas WHERE "idTienda" = '${idTienda}' ;')
+        const idTienda = parseInt(request.params.idTienda)
+        let result = await pool.query('SELECT * FROM public.tiendas WHERE "idTienda" = $1 ;', [idTienda])
         return result.rows;
     }
     catch (err) {

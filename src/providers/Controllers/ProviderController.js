@@ -15,7 +15,8 @@ export const getProviders = async (req, res) => {
 };
 export const getById = async (idTienda, req, res) => {
     try {
-        const idTienda = req.params.id;
+        
+       // const idTienda = req.params.id;
         const provs = await svc.getById(idTienda);
 
         res.status(200).send(provs)
