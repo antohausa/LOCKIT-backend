@@ -46,7 +46,10 @@ export const createProvider = async (nombre_titular, apellido_titular, dni_titul
         await pool.connect();
         //const dias =["lunes","martes","miercoles","jueves","viernes","sabado","domingo"]
 
-        console.log("hola")
+        console.log(nombre_titular, apellido_titular, dni_titular, mail_interno, 
+            telefono_interno, razon_social, cuit, nombre_tienda, direccion, ciudad, 
+            cp, mail_publico, telefono_publico, descripcion, seguridad, 
+            veinticuatrohs, tipo_locker, precio, descuento, barrio, fk_usuario)
      
 
         /*const tienda = await pool.query(`INSERT INTO Tiendas (nombre, apellido, mail, contrasenia, telefono, fechanac, fkrol, username)
