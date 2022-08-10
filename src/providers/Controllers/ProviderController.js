@@ -32,6 +32,8 @@ export const getProviders = async (req, res) => {
 export const createProvider = async (req, res) => {
 
     try {
+        console.log(req.body)
+
         const {nombre_titular, apellido_titular,
             dni_titular, mail_interno, telefono_interno, razon_social, cuit, nombre_tienda, direccion, ciudad, cp,
             mail_publico, telefono_publico, descripcion, seguridad, veinticuatrohs,
