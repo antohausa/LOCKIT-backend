@@ -54,7 +54,7 @@ export const createProvider = async (provider) => {
         */
     let result=null;
     result = await pool.query (`INSERT INTO Tiendas(
-                            nombre_titular, apellido_titular, dni_titular, mail_interno, telefono_interno, razon_social, cuit, nombre_tienda, direccion, ciudad, cp, mail_publico, telefono_publico, descripcion, seguridad, "24hs", tipo_locker, precio, descuento, barrio, fk_usuario)
+                            nombre_titular, apellido_titular, dni_titular, mail_interno, telefono_interno, razon_social, cuit, nombre_tienda, direccion, ciudad, cp, mail_publico, telefono_publico, descripcion, seguridad, veinticuatrohs, tipo_locker, precio, descuento, barrio, fk_usuario)
                             VALUES ('${provider.nombre_titular}', '${provider.apellido_titular}', '${provider.dni_titular}', '${provider.mail_interno}',
                             '${provider.telefono_interno}', '${provider.razon_social}','${provider.cuit}', '${provider.nombre_tienda}','${provider.direccion}',
                             '${provider.ciudad}', '${provider.cp}', '${provider.mail_publico}', '${provider.telefono_publico}', '${provider.descripcion}', 
