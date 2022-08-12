@@ -1,8 +1,8 @@
 class Provider{
     constructor(nombre_titular, apellido_titular,
         dni_titular, mail_interno, telefono_interno, razon_social, cuit, nombre_tienda, direccion, ciudad, cp,
-        mail_publico, telefono_publico, logo, portada, img1, img2, img3, img4, descripcion, seguridad, veinticuatrohs,
-        tipo_locker, precio, descuento, barrio, fk_usuario, horarios){
+        mail_publico, telefono_publico, descripcion, seguridad, veinticuatrohs,
+        tipo_locker, precio, descuento, barrio, fk_usuario, horario){
             
             this.nombre_titular = nombre_titular;
             this.apellido_titular = apellido_titular;
@@ -17,12 +17,6 @@ class Provider{
             this.cp = cp;
             this.mail_publico = mail_publico;
             this.telefono_publico = telefono_publico;
-            this.logo = logo;
-            this.portada = portada;
-            this.img1 = img1;
-            this.img2 = img2;
-            this.img3 = img3;
-            this.img4 = img4;
             this.descripcion = descripcion;
             this.seguridad = seguridad;
             this.veinticuatrohs = veinticuatrohs;
@@ -31,7 +25,7 @@ class Provider{
             this.descuento = descuento;
             this.barrio = barrio;
             this.fk_usuario = fk_usuario;
-           this.horarios = horarios;
+           this.horario = horario;
 
 
     }
