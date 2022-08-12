@@ -3,9 +3,9 @@ import * as svc from '../Services/LockerService.js'
 
 export const getLockers = async (req, res) => {
     try {
-        const provs = await svc.getAll();
+        const lockers = await svc.getAll();
 
-        res.status(200).send(provs)
+        res.status(200).send(lockers)
     }
     catch (err) {
         console.log(err)
