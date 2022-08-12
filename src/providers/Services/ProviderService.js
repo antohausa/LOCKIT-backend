@@ -37,19 +37,13 @@ export const getAll = async () => {
     }
 }*/
 
-export const createProvider = async (nombre_titular, apellido_titular, dni_titular, mail_interno, 
-    telefono_interno, razon_social, cuit, nombre_tienda, direccion, ciudad, 
-    cp, mail_publico, telefono_publico, descripcion, seguridad, 
-    veinticuatrohs, tipo_locker, precio, descuento, barrio, fk_usuario) => {
+export const createProvider = async (provider) => {
 
     try {
         await pool.connect();
         //const dias =["lunes","martes","miercoles","jueves","viernes","sabado","domingo"]
 
-        console.log(nombre_titular, apellido_titular, dni_titular, mail_interno, 
-            telefono_interno, razon_social, cuit, nombre_tienda, direccion, ciudad, 
-            cp, mail_publico, telefono_publico, descripcion, seguridad, 
-            veinticuatrohs, tipo_locker, precio, descuento, barrio, fk_usuario)
+        console.log(provider)
      
 
         /*const tienda = await pool.query(`INSERT INTO Tiendas (nombre, apellido, mail, contrasenia, telefono, fechanac, fkrol, username)
@@ -61,10 +55,10 @@ export const createProvider = async (nombre_titular, apellido_titular, dni_titul
     let result=null;
     result = await pool.query (`INSERT INTO Tiendas(
                             nombre_titular, apellido_titular, dni_titular, mail_interno, telefono_interno, razon_social, cuit, nombre_tienda, direccion, ciudad, cp, mail_publico, telefono_publico, descripcion, seguridad, "24hs", tipo_locker, precio, descuento, barrio, fk_usuario)
-                            VALUES ('${nombre_titular}', '${apellido_titular}', '${dni_titular}', '${mail_interno}',
-                            '${telefono_interno}', '${razon_social}','${cuit}', '${nombre_tienda}','${direccion}',
-                            '${ciudad}', '${cp}', '${mail_publico}', '${telefono_publico}', '${descripcion}', 
-                            ${seguridad}, ${veinticuatrohs}, ${tipo_locker},${precio},${descuento}, '${barrio}', ${fk_usuario})`);  
+                            VALUES ('${provider.nombre_titular}', '${provider.apellido_titular}', '${provider.dni_titular}', '${provider.mail_interno}',
+                            '${provider.telefono_interno}', '${provider.razon_social}','${provider.cuit}', '${provider.nombre_tienda}','${provider.direccion}',
+                            '${provider.ciudad}', '${provider.cp}', '${provider.mail_publico}', '${provider.telefono_publico}', '${provider.descripcion}', 
+                            ${provider.seguridad}, ${provider.veinticuatrohs}, ${provider.tipo_locker},${provider.precio},${provider.descuento}, '${provider.barrio}', ${provider.fk_usuario})`);  
 /*
                                                const idTienda = await pool.query(`SELECT idTienda FROM public.tiendas WHERE cuit='${cuit}'`)
 

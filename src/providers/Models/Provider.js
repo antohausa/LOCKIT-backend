@@ -1,9 +1,9 @@
-class providerDTO{
-    constructor(idTienda,nombre_titular, apellido_titular,
+class Provider{
+    constructor(nombre_titular, apellido_titular,
         dni_titular, mail_interno, telefono_interno, razon_social, cuit, nombre_tienda, direccion, ciudad, cp,
         mail_publico, telefono_publico, logo, portada, img1, img2, img3, img4, descripcion, seguridad, veinticuatrohs,
         tipo_locker, precio, descuento, barrio, fk_usuario, horarios){
-            this.idTienda=idTienda;
+            
             this.nombre_titular = nombre_titular;
             this.apellido_titular = apellido_titular;
             this.dni_titular = dni_titular;
@@ -37,4 +37,4 @@ class providerDTO{
     }
 
 }
-export default providerDTO;
+export default Provider;
