@@ -9,6 +9,7 @@ UserRouter.get("/", (req, res) => {
 
 UserRouter.get('/getusers', con.getUsers)
 UserRouter.post('/createuser', con.createUser)
+UserRouter.get('/:username', con.getUserByUsername)
 UserRouter.post('/login', con.login)
 
 export default UserRouter;

@@ -15,9 +15,9 @@ export const getUsers = async (req, res) => {
 
 };
 
-export const userExistsByUsername = async (req, res) => {
+export const getUserByUsername = async (req, res) => {
     try {
-        const user = await svc.userExistsByUsername();
+        const user = await svc.getUserByUsername(username);
         res.status(200).send(user)
     } catch (err) {
         res.status(500).send({ err})
