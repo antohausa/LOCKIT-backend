@@ -17,8 +17,11 @@ export const getUsers = async (req, res) => {
 
 export const getUserByUsername = async (req, res) => {
     try {
-        const user = await svc.getUserByUsername(username);
-        res.status(200).send(user)
+        console.log("hola")
+        const username = req.params.username;
+        
+        const id = await svc.getUserByUsername(username);
+        res.status(200).send(id)
     } catch (err) {
         res.status(500).send({ err})
     }
