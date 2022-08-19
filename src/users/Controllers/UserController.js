@@ -15,6 +15,7 @@ export const getUsers = async (req, res) => {
 
 };
 
+
 export const getUserByUsername = async (req, res) => {
     try {
         console.log("hola")
@@ -48,8 +49,7 @@ export const login = async ( req, res) => {
 }
 
 export const createUser = async ( req, res) => {
-
-    console.log(req.body)
+   
     try {
         const {
             nombre,

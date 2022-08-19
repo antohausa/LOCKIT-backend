@@ -62,12 +62,10 @@ export const createUser = async (nombre, apellido, mail, contrasenia, telefono, 
             await pool.connect();
             let result=null
 
-            console.log(nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username)
-         
             result = await pool.query(`INSERT INTO usuarios (nombre, apellido, mail, contrasenia, telefono, fechanac, fkrol, username)
-                                                VALUES ('${nombre}', '${apellido}', '${mail}', '${contrasenia}', '${telefono}', '${fechaNac}','${fkRol}', '${username}')`);
-                
-                return result.rowCount
+                                                VALUES ('${nombre}', '${apellido}', '${mail}', '${contrasenia}', '${telefono}', '${fechaNac}','${fkRol}', '${username}') RETURNING *`);
+
+                return result.rows[0].idUsuarios
                 
         }
         catch (err) {
