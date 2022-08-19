@@ -18,7 +18,7 @@ export const getAll = async () => {
         let result = await pool.query('SELECT * FROM lockers;')
         console.log(result);
         await pool.end()
-        await pool.
+        
         return result.rows;
 
     }
