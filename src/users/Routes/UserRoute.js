@@ -11,5 +11,6 @@ UserRouter.get('/getusers', con.getUsers)
 UserRouter.post('/createuser', con.createUser)
 UserRouter.get('/:username', con.getUserByUsername)
 UserRouter.post('/login', con.login)
+UserRouter.post('/me', con.me)
 
 export default UserRouter;

@@ -19,9 +19,11 @@
     "heroku": "^7.62.0",
     "json": "^11.0.0",
     "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
     "nodemon": "^2.0.19",
     "pg": "^8.7.3",
     "postgresql": "^0.0.1",
+    "supertokens-website": "^8.2.0",
     "uuid": "^3.2.1"
   }
 }
