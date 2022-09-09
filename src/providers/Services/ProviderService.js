@@ -84,3 +84,20 @@ export const createProvider = async (provider) => {
     }
 
 }
+
+export const getByBarrio = async (barrio) => {
+    let result=null
+    console.log(pool);
+    try {
+
+       await pool.connect();
+
+    result = await pool.query(`SELECT * FROM Tiendas WHERE  Lower(barrio) like '${barrio}'  ;`)
+    console.log(result)
+        return result.rows;
+    }
+    catch (err) {
+        console.log(err)
+        return err
+    }
+}
