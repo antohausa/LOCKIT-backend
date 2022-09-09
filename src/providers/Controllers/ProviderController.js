@@ -66,7 +66,7 @@ export const getByBarrio = async (req, res) => {
 
         const tienda = await svc.getByBarrio(barrio);
 //        console.log(tienda)
-        res.status(200).send(tienda)
+        res.status(tienda.length === 0 ? 500 : 200).send(tienda)
     } catch (err) {
         res.status(500).send({ err })
     }
