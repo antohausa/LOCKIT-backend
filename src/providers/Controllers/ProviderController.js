@@ -61,7 +61,7 @@ export const createProvider = async (req, res) => {
 export const getByBarrio = async (req, res) => {
     try {
         console.log("hola")
-        const barrio = req.params.barrio;
+        const barrio = req.body.barrio;
        console.log(barrio)
 
         const tienda = await svc.getByBarrio(barrio);
