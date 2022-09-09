@@ -84,21 +84,20 @@ export const login = async (username,contrasenia) => {
         let result = null
         
         result = await pool.query(`SELECT * FROM usuarios WHERE contrasenia='${contrasenia}' AND username='${username}'`);      
-        console.log(result);
        
-        rta = result.rowCount;
+        await pool.end()
+
+        rta = result.rows;
         
-        if (rta == 0 ) {
-            return rta = null; 
+        if (result.rowCount == 1) {
+            return rta;
         } 
         else {
-                    return rta;
-
+            return rta = null;
         }
 
     }
     catch (err) {
-        console.log(err)
         return err
     }
 

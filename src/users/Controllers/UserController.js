@@ -20,25 +20,33 @@ export const getUserByUsername = async (req, res) => {
     try {
         console.log("hola")
         const username = req.params.username;
-        
+
         const id = await svc.getUserByUsername(username);
         res.status(200).send(id)
     } catch (err) {
-        res.status(500).send({ err})
+        res.status(500).send({ err })
     }
 
 }
 
-export const login = async ( req, res) => {
+export const login = async (req, res) => {
+
+    console.clear()
+
     try {
-        const {username,contrasenia} = req.body;
+        const { username, contrasenia } = req.body;
         const user = await svc.login(username, contrasenia);
+
+        const userSign = { user: user }
+
         if (user == null) {
             return res.status(404).send(`no encontrado`)
         } else {
-            // return res.status(200).send(username)
-            jwt.sign({user}, 'secretkey', (err, token) => {
-                res.json({token}) })
+
+            jwt.sign({ userSign }, 'secretkey', (err, token) => {
+
+                res.status(200).send({ token })
+            })
         }
 
     } catch (err) {
@@ -48,8 +56,8 @@ export const login = async ( req, res) => {
     }
 }
 
-export const createUser = async ( req, res) => {
-   
+export const createUser = async (req, res) => {
+
     try {
         const {
             nombre,
@@ -68,9 +76,6 @@ export const createUser = async ( req, res) => {
 
         res.sendStatus(201).send(userCreated)
 
-
-
-
     } catch (err) {
         res.status(500).send({
             err
@@ -78,13 +83,55 @@ export const createUser = async ( req, res) => {
     }
 
 };
+/*export const takeToken =async (req, res, next)=>{
+   try{
+    const bearerHeader = req.headers['token'];
+    console.log("estoy aca")
+    console.log(bearerHeader);
+    if(typeof bearerHeader !== 'undefined'){
+        const bearer = bearerHeader.split(' ');
+        const bearerToken = bearer[1];
+        req.token = bearerToken;
+        next();
+    } else{
+        res.sendStatus(403)
+    }
+}
+catch (err) {
+    res.status(500).send({
+        err
+    })
+}
 
+}
+
+export const verifyToken = async (req, res, next) => {
+    try {
+        const bearerHeader = req.headers['token'];
+        console.log("hola")
+        console.log(bearerHeader)
+        jwt.verify(bearerHeader, 'secretkey', (err, authData) => {
+            if (err) {
+                res.status(403).json(err);
+            } else {
+                next();
+            }
+        })
+        console.log("termine")
+    }
+    catch (err) {
+        res.status(500).send({
+            err
+        })
+    }
+}
+*/
 
 /*export const verifyToken = async (req, res, next) => {
     try {
         const bearerHeader = req.headers['authorization']
         if (typeof bearerHeader !== 'undefined'){}
-    
+
     else {
         res.sendStatus(403)
     }
