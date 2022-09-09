@@ -31,21 +31,7 @@ export const getAll = async () => {
         return err
     }
 }
-export const getUserByUsername = async (username) => {
-    let result=null
-    console.log(pool);
-    try {
 
-       await pool.connect();
-
-    result = await pool.query(`SELECT "idUsuarios" FROM usuarios WHERE username='${username}';`)
-        return result.rows;
-    }
-    catch (err) {
-        console.log(err)
-        return err
-    }
-}
 
 
 
@@ -103,7 +89,21 @@ console.log(rta)
 
 
 
+export const getUserByUsername = async (username) => {
+    let result=null
+    console.log(pool);
+    try {
 
+       await pool.connect();
+
+    result = await pool.query(`SELECT "idUsuarios" FROM usuarios WHERE username='${username}';`)
+        return result.rows;
+    }
+    catch (err) {
+        console.log(err)
+        return err
+    }
+}
 
 
 
