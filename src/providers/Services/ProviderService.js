@@ -87,7 +87,6 @@ export const createProvider = async (provider) => {
 
 export const getByBarrio = async (barrio) => {
     let result=null
-    console.log(pool);
     try {
 
        await pool.connect();
