@@ -1,4 +1,4 @@
-import pkg from 'pg';
+import pkg, { types } from 'pg';
 
 //setteo env
 const { Pool } = pkg;
@@ -94,6 +94,7 @@ export const createProvider = async (provider) => {
     }
 
 }
+
 
 export const getByBarrio = async (barrio) => {
     let result=null
