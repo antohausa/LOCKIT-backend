@@ -1,4 +1,4 @@
-import pkg, { types } from 'pg';
+import pkg from 'pg';
 
 //setteo env
 const { Pool } = pkg;
