@@ -41,4 +41,17 @@ export const getById = async (idTienda) => {
         return err
     }
 
-}
+
+  
+}  
+export const getActivo = async (idTienda) => {
+        try{
+            await pool.connect();
+            let result = await pool.query(`SELECT "idLocker", l."fkTienda", "activo" , "fkCliente" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = true AND t."idTienda"=${idTienda}`)
+            return result.rowCount
+        }
+        catch(err){
+            console.log(err)
+            return err
+        }
+    }
