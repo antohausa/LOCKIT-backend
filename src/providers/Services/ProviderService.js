@@ -82,7 +82,7 @@ export const createProvider = async (provider) => {
                "fkTienda", "fkDia", apertura, cierre)
                 VALUES ('${idTienda}','${i}', @apertura,@cierre);`)
         }
-        */
+        
         // pool.end()
         return result.rowCount
 
