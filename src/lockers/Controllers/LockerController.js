@@ -30,6 +30,20 @@ export const getById = async ( req, res) => {
 
 }
 
+export const getActivo = async ( req, res) => {
+    try {
+        const idTienda = req.params.idTienda;
+        const activo = await svc.getActivo(idTienda);
+
+        res.status(200).json(activo)
+    }
+    
+    catch (err) {
+        console.log(err)
+        return res.status(500).json(err)
+    }
+
+}
 /*export const createProvider = async (req, res) => {
 
     try {

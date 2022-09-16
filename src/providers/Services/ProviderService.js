@@ -110,3 +110,15 @@ export const getByBarrio = async (barrio) => {
         return err
     }
 }
+
+export const getResenia = async (idTienda) => {
+    try{
+        await pool.connect();
+        let result = await pool.query(`SELECT "idResenia", "fkTienda", "fkUsuario", estrellas, comentario, fecha FROM public."Resenias" r INNER JOIN Tiendas t ON r."fkTienda" = t."idTienda" WHERE "idTienda"=${idTienda}`)
+        return result.rows;
+    }
+    catch(err){
+        console.log(err)
+        return err
+    }
+}
