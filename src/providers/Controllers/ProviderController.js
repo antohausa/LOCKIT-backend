@@ -71,10 +71,7 @@ export const getByBarrio = async (req, res) => {
         res.status(500).send({ err })
     }
 }
-<<<<<<< HEAD
 
-
-=======
 export const getResenia = async ( req, res) => {
     try {
         const idTienda = req.params.idTienda;
@@ -89,4 +86,3 @@ export const getResenia = async ( req, res) => {
     }
 
 }
->>>>>>> 0593c5b123b97198dedba17cfaa805fcd4bb3aec
