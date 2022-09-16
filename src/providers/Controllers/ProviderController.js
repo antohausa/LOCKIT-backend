@@ -64,7 +64,7 @@ export const getByBarrio = async (req, res) => {
         const barrio = req.params.barrio;
        console.log(barrio)
 
-        const tienda = await svc.getByBarrio(barrio);
+        const tienda = await svc.getByBarrio(barrio.toLowerCase());
 //        console.log(tienda)
         res.status(tienda.length === 0 ? 500 : 200).send(tienda)
     } catch (err) {
