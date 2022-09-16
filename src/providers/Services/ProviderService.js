@@ -62,11 +62,15 @@ export const createProvider = async (provider) => {
 
                 
 
-                            const rta = await pool.query(`SELECT TOP "idTienda" FROM public.tiendas WHERE cuit='${provider.cuit}'`)
-console.log(rta.rows[0].idTienda)
-                           /* result = await pool.query (`INSERT INTO public.horarios(
-                                "fkTienda", "fkDia", apertura, cierre)
-                                VALUES (${id}, ?, ?, ?, ?);`)
+                            const result2 = await pool.query(`SELECT "idTienda" FROM public.tiendas WHERE cuit='${provider.cuit}'`)
+/*
+                            const id=result2.rows[0].idTienda
+                            dias.forEach(async (dia) => {
+                                const result3 = await pool.query (`INSERT INTO public.horarios(
+                                    "fkTienda", "fkDia", apertura, cierre)
+                                    VALUES (${id}, ${dia}, ${provider.horarios.{dia}}, ?);`)
+                              })
+                    
                                
 */
                             
