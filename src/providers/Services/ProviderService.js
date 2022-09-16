@@ -60,18 +60,17 @@ export const createProvider = async (provider) => {
                             '${provider.ciudad}', '${provider.cp}', '${provider.mail_publico}', '${provider.telefono_publico}', '${provider.descripcion}', 
                             ${provider.seguridad}, ${provider.veinticuatrohs}, ${provider.tipo_locker},${provider.precio},${provider.descuento}, '${provider.barrio}', ${provider.fk_usuario})`);  
 
-                            console.log(provider.horarios)
+                
 
-                            const id = await pool.query(`SELECT idTienda FROM public.tiendas WHERE cuit='${cuit}'`)
-
-                            result = await pool.query (`INSERT INTO public.horarios(
+                            const rta = await pool.query(`SELECT TOP "idTienda" FROM public.tiendas WHERE cuit='${provider.cuit}'`)
+console.log(rta.rows[0].idTienda)
+                           /* result = await pool.query (`INSERT INTO public.horarios(
                                 "fkTienda", "fkDia", apertura, cierre)
                                 VALUES (${id}, ?, ?, ?, ?);`)
                                
-
+*/
                             
-                                               const idTienda = await pool.query(`SELECT idTienda FROM public.tiendas WHERE cuit='${cuit}'`)
-
+/*                                     
         //from here tengo el ID TIENDA
         const imgs = await pool.query(`INSERT INTO imagenes (img1, img2, img3, img4, logo, portada)
                                                 VALUES ('${img1}', '${img2}', '${img3}', '${img4}','${logo}', '${idTienda}','${portada}')`);
@@ -82,7 +81,7 @@ export const createProvider = async (provider) => {
                "fkTienda", "fkDia", apertura, cierre)
                 VALUES ('${idTienda}','${i}', @apertura,@cierre);`)
         }
-        
+*/        
         // pool.end()
         return result.rowCount
 
