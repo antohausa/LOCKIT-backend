@@ -71,3 +71,17 @@ export const getByBarrio = async (req, res) => {
         res.status(500).send({ err })
     }
 }
+export const getResenia = async ( req, res) => {
+    try {
+        const idTienda = req.params.idTienda;
+        const resenia = await svc.getResenia(idTienda);
+
+        res.status(200).json(resenia)
+    }
+    
+    catch (err) {
+        console.log(err)
+        return res.status(500).json(err)
+    }
+
+}
