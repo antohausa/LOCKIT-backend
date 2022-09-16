@@ -42,8 +42,8 @@ export const createProvider = async (req, res) => {
 
 
         const provider = new Provider(req.body)
-        console.log("hola")
-        const providerCreated = await svc.createProvider(provider.nombre_titular, provider.apellido_titular,
+        
+const providerCreated = await svc.createProvider(provider.nombre_titular, provider.apellido_titular,
     provider.dni_titular, provider.mail_interno, provider.telefono_interno, provider.razon_social, provider.cuit, provider.nombre_tienda, provider.direccion, provider.ciudad, provider.cp,
     provider.mail_publico, provider.telefono_publico, provider.descripcion, provider.seguridad, provider.veinticuatrohs,
     provider.tipo_locker, provider.precio, provider.descuento, provider.barrio, provider.fk_usuario, provider.horario)
@@ -71,3 +71,5 @@ export const getByBarrio = async (req, res) => {
         res.status(500).send({ err })
     }
 }
+
+

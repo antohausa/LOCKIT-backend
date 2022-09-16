@@ -59,7 +59,17 @@ export const createProvider = async (provider) => {
                             '${provider.telefono_interno}', '${provider.razon_social}','${provider.cuit}', '${provider.nombre_tienda}','${provider.direccion}',
                             '${provider.ciudad}', '${provider.cp}', '${provider.mail_publico}', '${provider.telefono_publico}', '${provider.descripcion}', 
                             ${provider.seguridad}, ${provider.veinticuatrohs}, ${provider.tipo_locker},${provider.precio},${provider.descuento}, '${provider.barrio}', ${provider.fk_usuario})`);  
-/*
+
+                            console.log(provider.horarios)
+
+                            const id = await pool.query(`SELECT idTienda FROM public.tiendas WHERE cuit='${cuit}'`)
+
+                            result = await pool.query (`INSERT INTO public.horarios(
+                                "fkTienda", "fkDia", apertura, cierre)
+                                VALUES (${id}, ?, ?, ?, ?);`)
+                               
+
+                            
                                                const idTienda = await pool.query(`SELECT idTienda FROM public.tiendas WHERE cuit='${cuit}'`)
 
         //from here tengo el ID TIENDA
