@@ -66,7 +66,7 @@ export const reservar = async (idTienda) => {
         else {
             let locker = result1.rows[0].idLocker
             let result = await pool.query(`UPDATE public.lockers
-            SET "activo"=false
+            SET "activo"=true
             WHERE "idLocker"=${locker};`)
             return locker
         }
