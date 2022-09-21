@@ -18,7 +18,7 @@ export const getAll = async () => {
         let result = await pool.query('SELECT * FROM lockers;')
         console.log(result);
         await pool.end()
-        
+
         return result.rows;
 
     }
@@ -31,7 +31,7 @@ export const getAll = async () => {
 export const getById = async (idTienda) => {
     try {
         await pool.connect();
-       // const idTienda = parseInt(request.params.idTienda)
+        // const idTienda = parseInt(request.params.idTienda)
         let result = await pool.query(`SELECT "idLocker", "fkTienda", activo, "fkCliente"
         FROM lockers l INNER JOIN tiendas ti ON l."fkTienda"= ti."idTienda"  WHERE "idTienda"=${idTienda}; `)
         return result.rows;
@@ -42,32 +42,38 @@ export const getById = async (idTienda) => {
     }
 
 
-  
-}  
-export const getActivo = async (idTienda) => {
-        try{
-            await pool.connect();
-            let result = await pool.query(`SELECT "idLocker", l."fkTienda", "activo" , "fkCliente" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = true AND t."idTienda"=${idTienda}`)
-            return result.rowCount
-        }
-        catch(err){
-            console.log(err)
-            return err
-        }
-    }
 
-    export const reservar = async (idTienda) => {
-        try{
-            await pool.connect();
-            let result1 = await pool.query(`SELECT "idLocker" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = true AND t."idTienda"=${idTienda}`)
+}
+export const getActivo = async (idTienda) => {
+    try {
+        await pool.connect();
+        let result = await pool.query(`SELECT "idLocker", l."fkTienda", "activo" , "fkCliente" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = true AND t."idTienda"=${idTienda}`)
+        return result.rowCount
+    }
+    catch (err) {
+        console.log(err)
+        return err
+    }
+}
+
+export const reservar = async (idTienda) => {
+    try {
+        await pool.connect();
+        let result1 = await pool.query(`SELECT "idLocker" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = false AND t."idTienda"=${idTienda}`)
+        if (result1.rowCount == 0) {
+            return null
+        }
+        else {
             let locker = result1.rows[0].idLocker
             let result = await pool.query(`UPDATE public.lockers
             SET "activo"=false
             WHERE "idLocker"=${locker};`)
-            return result.rows
+            return locker
         }
-        catch(err){
-            console.log(err)
-            return err
-        }
+
     }
+    catch (err) {
+        console.log(err)
+        return err
+    }
+}

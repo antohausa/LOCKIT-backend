@@ -48,9 +48,9 @@ export const getActivo = async ( req, res) => {
 export const reservar = async ( req, res) => {
     try {
         const idTienda = req.params.idTienda;
-        const reserva = await svc.reservar(idTienda);
+        const lockerReservado = await svc.reservar(idTienda);
 
-        res.status(200).json(reserva)
+        res.status(200).json(lockerReservado)
     }
     
     catch (err) {
