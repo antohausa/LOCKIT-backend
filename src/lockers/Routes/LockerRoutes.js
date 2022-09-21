@@ -10,6 +10,7 @@ LockerRouter.get("/", (req, res) => {
 LockerRouter.get('/getLockers', con.getLockers)
 LockerRouter.get('/getActivo/:idTienda', con.getActivo)
 LockerRouter.get('/:idTienda', con.getById)
+LockerRouter.get('/reservar/:idTienda', con.reservar)
 
 //ProviderRouter.post('/createProvider', con.createProvider)
 

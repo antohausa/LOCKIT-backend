@@ -55,3 +55,19 @@ export const getActivo = async (idTienda) => {
             return err
         }
     }
+
+    export const reservar = async (idTienda) => {
+        try{
+            await pool.connect();
+            let result1 = await pool.query(`SELECT "idLocker" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = true AND t."idTienda"=${idTienda}`)
+            let locker = result1.rows[0].idLocker
+            let result = await pool.query(`UPDATE public.lockers
+            SET "activo"=false
+            WHERE "idLocker"=${locker};`)
+            return result.rows
+        }
+        catch(err){
+            console.log(err)
+            return err
+        }
+    }

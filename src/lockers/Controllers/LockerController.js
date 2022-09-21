@@ -8,7 +8,7 @@ export const getLockers = async (req, res) => {
         res.status(200).send(lockers)
     }
     catch (err) {
-        console.log(err)
+        console.log(err) 
         return res.status(500).json(err)
     }
 
@@ -36,6 +36,21 @@ export const getActivo = async ( req, res) => {
         const activo = await svc.getActivo(idTienda);
 
         res.status(200).json(activo)
+    }
+    
+    catch (err) {
+        console.log(err)
+        return res.status(500).json(err)
+    }
+
+}
+
+export const reservar = async ( req, res) => {
+    try {
+        const idTienda = req.params.idTienda;
+        const reserva = await svc.reservar(idTienda);
+
+        res.status(200).json(reserva)
     }
     
     catch (err) {
