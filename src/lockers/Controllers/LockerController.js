@@ -45,7 +45,22 @@ export const getActivo = async ( req, res) => {
 
 }
 
-export const reservar = async ( req, res) => {
+export const availability = async ( req, res) => {
+    try {
+        const idTienda = req.params.idTienda;
+        const availableLockers = await svc.getAvailability(idTienda);
+
+        res.status(200).send(availableLockers)
+    }
+    
+    catch (err) {
+        console.log(err)
+        return res.status(500).json(err)
+    }
+
+}
+
+export const reservar = async (req, res) => {
     try {
         const idTienda = req.params.idTienda;
         const lockerReservado = await svc.reservar(idTienda);

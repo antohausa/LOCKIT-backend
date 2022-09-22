@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import * as con from '../Controllers/ReservasController.js'
+import * as con from '../Controller/ReservaController.js'
 
 const ReservaRouter = Router()
 
@@ -7,9 +7,9 @@ ReservaRouter.get("/", (req, res) => {
     res.send("OMG HI ANTO!!!!!!")
 })
 
-ReservaRouter.get('/getLockers', con.getReservas)
-
+ReservaRouter.get('/getReservas', con.getReservas)
+ReservaRouter.post('/createReserva', con.createReserva)
 
 //ProviderRouter.post('/createProvider', con.createProvider)
 
-export default LockerRouter;
+export default ReservaRouter;

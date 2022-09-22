@@ -56,10 +56,33 @@ export const getActivo = async (idTienda) => {
     }
 }
 
-export const reservar = async (idTienda) => {
+export const getAvailability = async (idTienda) => {
     try {
         await pool.connect();
-        let result1 = await pool.query(`SELECT "idLocker" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = false AND t."idTienda"=${idTienda}`)
+        let small_availability = await pool.query(`SELECT "idLocker", l."fkTienda", "activo" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = false AND l."fk_tipoLocker"=${0} AND t."idTienda"=${idTienda}`)
+        let medium_availability = await pool.query(`SELECT "idLocker", l."fkTienda", "activo" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = false AND l."fk_tipoLocker"=${1} AND t."idTienda"=${idTienda}`)
+        let large_availability = await pool.query(`SELECT "idLocker", l."fkTienda", "activo" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = false AND l."fk_tipoLocker"=${2} AND t."idTienda"=${idTienda}`)
+        
+       let availabilityToCheck = [small_availability.rowCount, medium_availability.rowCount, large_availability.rowCount]
+       let availability=[]
+       for (let i=0;i<=2;i++){
+            if (availabilityToCheck[i]>0){
+                availability.push(i)
+            }
+            console.log(availability)
+        }
+        return availability
+    }
+    catch (err) {
+        console.log(err)
+        return err
+    }
+}
+
+export const reservar = async (idTienda, tipoLocker) => {
+    try {
+        await pool.connect();
+        let result1 = await pool.query(`SELECT "idLocker" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = false AND "fk_tipoLocker"=${tipoLocker} AND t."idTienda"=${idTienda}`)
         if (result1.rowCount == 0) {
             return null
         }
