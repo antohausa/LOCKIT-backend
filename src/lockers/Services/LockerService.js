@@ -14,10 +14,8 @@ const pool = new Pool(
 
 export const getAll = async () => {
     try {
-        await pool.connect();
         let result = await pool.query('SELECT * FROM lockers;')
         console.log(result);
-        await pool.end()
 
         return result.rows;
 
@@ -30,7 +28,6 @@ export const getAll = async () => {
 
 export const getById = async (idTienda) => {
     try {
-        await pool.connect();
         // const idTienda = parseInt(request.params.idTienda)
         let result = await pool.query(`SELECT "idLocker", "fkTienda", activo, "fkCliente"
         FROM lockers l INNER JOIN tiendas ti ON l."fkTienda"= ti."idTienda"  WHERE "idTienda"=${idTienda}; `)
@@ -46,7 +43,6 @@ export const getById = async (idTienda) => {
 }
 export const getActivo = async (idTienda) => {
     try {
-        await pool.connect();
         let result = await pool.query(`SELECT "idLocker", l."fkTienda", "activo" , "fkCliente" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = true AND t."idTienda"=${idTienda}`)
         return result.rowCount
     }
@@ -58,7 +54,6 @@ export const getActivo = async (idTienda) => {
 
 export const getAvailability = async (idTienda) => {
     try {
-        await pool.connect();
         let small_availability = await pool.query(`SELECT "idLocker", l."fkTienda", "activo" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = false AND l."fk_tipoLocker"=${0} AND t."idTienda"=${idTienda}`)
         let medium_availability = await pool.query(`SELECT "idLocker", l."fkTienda", "activo" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = false AND l."fk_tipoLocker"=${1} AND t."idTienda"=${idTienda}`)
         let large_availability = await pool.query(`SELECT "idLocker", l."fkTienda", "activo" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = false AND l."fk_tipoLocker"=${2} AND t."idTienda"=${idTienda}`)
@@ -81,7 +76,6 @@ export const getAvailability = async (idTienda) => {
 
 export const reservar = async (idTienda, tipoLocker) => {
     try {
-        await pool.connect();
         let result1 = await pool.query(`SELECT "idLocker" FROM Lockers l INNER JOIN Tiendas t ON l."fkTienda"= t."idTienda" WHERE activo = false AND "fk_tipoLocker"=${tipoLocker} AND t."idTienda"=${idTienda}`)
         if (result1.rowCount == 0) {
             return null

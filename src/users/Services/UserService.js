@@ -21,7 +21,6 @@ export const getAll = async () => {
     console.log(pool);
     try {
 
-       await pool.connect();
 
     result = await pool.query('SELECT * FROM usuarios;')
         return result.rows;
@@ -45,7 +44,6 @@ export const createUser = async (nombre, apellido, mail, contrasenia, telefono, 
      //   const { nombre, apellido, mail, contrasenia, telefono, fechaNac, fkRol, username } = user
 
         try {
-            await pool.connect();
             let result=null
 
             result = await pool.query(`INSERT INTO usuarios (nombre, apellido, mail, contrasenia, telefono, fechanac, fkrol, username)
@@ -66,7 +64,6 @@ export const login = async (username,contrasenia) => {
     let rta = null;
     console.log(username, contrasenia);
     try{
-        await pool.connect();
         let result = null
         
         result = await pool.query(`SELECT * FROM usuarios WHERE contrasenia='${contrasenia}' AND username='${username}'`);      
@@ -94,7 +91,6 @@ export const getUserByUsername = async (username) => {
     console.log(pool);
     try {
 
-       await pool.connect();
 
     result = await pool.query(`SELECT "idUsuarios" FROM usuarios WHERE username='${username}';`)
         return result.rows;

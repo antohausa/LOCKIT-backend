@@ -14,7 +14,6 @@ const pool = new Pool(
 
 export const getAll = async () => {
     try {
-        await pool.connect();
         let result = await pool.query('SELECT * FROM tiendas;')
         return result.rows;
     }
@@ -40,7 +39,6 @@ export const getAll = async () => {
 export const createProvider = async (provider) => {
 
     try {
-        await pool.connect();
         //const dias =["lunes","martes","miercoles","jueves","viernes","sabado","domingo"]
 
         console.log(provider)
@@ -103,7 +101,6 @@ export const getByBarrio = async (barrio) => {
     let result=null
     try {
 
-       await pool.connect();
 
     result = await pool.query(`SELECT * FROM Tiendas WHERE  Lower(barrio) like '${barrio}'  ;`)
     console.log(result)
@@ -117,7 +114,6 @@ export const getByBarrio = async (barrio) => {
 
 export const getResenia = async (idTienda) => {
     try{
-        await pool.connect();
         let result = await pool.query(`SELECT "idResenia", "fkTienda", "fkUsuario", estrellas, comentario, fecha FROM public."Resenias" r INNER JOIN Tiendas t ON r."fkTienda" = t."idTienda" WHERE "idTienda"=${idTienda}`)
         return result.rows;
     }
