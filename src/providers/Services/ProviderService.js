@@ -23,18 +23,18 @@ export const getAll = async () => {
     }
 }
 
-/*export const getById = async (idTienda) => {
+export const getById = async (usuario) => {
     try {
-        await pool.connect();
+        
        // const idTienda = parseInt(request.params.idTienda)
-        let result = await pool.query(`SELECT * FROM tiendas WHERE "idTienda" = '${idTienda}' `,)
-        return result.rows;
+        let result = await pool.query(`SELECT * FROM tiendas INNER JOIN usuarios ON tiendas."fk_usuario"= usuarios."idUsuarios" WHERE tiendas."fk_usuario" = ${usuario} `,)
+        return result.rows[0];
     }
     catch (err) {
         console.log(err)
         return err
     }
-}*/
+}
 
 export const createProvider = async (provider) => {
 

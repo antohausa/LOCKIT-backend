@@ -10,6 +10,7 @@ ProviderRouter.get("/", (req, res) => {
 ProviderRouter.get('/getProviders', con.getProviders)
 ProviderRouter.post('/createProvider', con.createProvider)
 ProviderRouter.get('/getByBarrio/:barrio', con.getByBarrio)
+ProviderRouter.get('/getByUser/:user', con.getByUser)
 ProviderRouter.get('/getResenia/:idTienda', con.getResenia)
 
 

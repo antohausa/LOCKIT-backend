@@ -9,6 +9,7 @@ ReservaRouter.get("/", (req, res) => {
 
 ReservaRouter.get('/getReservas', con.getReservas)
 ReservaRouter.get('/getReservaById/:id', con.getReservaById)
+ReservaRouter.get('/getInfoById/:id', con.getInfoById)
 ReservaRouter.post('/createReserva', con.createReserva)
 
 //ProviderRouter.post('/createProvider', con.createProvider)

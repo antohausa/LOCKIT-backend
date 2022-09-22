@@ -29,6 +29,28 @@ export const getAll = async () => {
     }
 }
 
+
+export const getInfoById = async (id) => {
+    let result=null
+
+    try {
+        const pool = createPool()
+
+    result = await pool.query(`SELECT DATE(reservas."fechaInicio"), reservas."fechaInicio"::time, 
+    reservas."fechaFin"::time, lockers."idLocker", lockers."fk_tipoLocker", lockers."activo" FROM public.reservas
+    INNER JOIN lockers ON reservas."fkLocker" = lockers."idLocker"
+    INNER JOIN tiendas ON lockers."fkTienda" = tiendas."idTienda"
+    WHERE reservas."idReserva"=${id}`)
+    console.log(result.rows[0])
+
+    return result.rows[0];
+    }
+    catch (err) {
+        console.log(err)
+        return err
+    }
+}
+
 export const getReservaById = async (id) => {
     let result=null
 
