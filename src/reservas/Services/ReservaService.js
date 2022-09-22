@@ -35,7 +35,7 @@ export const getReservaById = async (id) => {
 
        await pool.connect();
 
-    result = await pool.query(`SELECT * FROM reservas WHERE idReserva='${id}';`)
+    result = await pool.query(`SELECT * FROM reservas WHERE "idReserva"=${id};`)
     await pool.end();
     return result.rows[0];
     }
