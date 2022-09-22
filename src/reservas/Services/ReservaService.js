@@ -28,15 +28,16 @@ export const getAll = async () => {
     }
 }
 
-export const getReservaBy = async (username) => {
+export const getReservaById = async (id) => {
     let result=null
-    console.log(pool);
+
     try {
 
        await pool.connect();
 
-    result = await pool.query(`SELECT "idUsuarios" FROM usuarios WHERE username='${username}';`)
-        return result.rows;
+    result = await pool.query(`SELECT * FROM reservas WHERE idReserva='${id}';`)
+    await pool.end();
+    return result.rows[0];
     }
     catch (err) {
         console.log(err)

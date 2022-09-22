@@ -15,6 +15,20 @@ export const getReservas = async (req, res) => {
 
 };
 
+export const getReservaById = async (req, res) => {
+    try {
+    
+        const id = req.params.id;
+
+        const reserva = await svc.getReservaById(id);
+
+        res.status(200).json(reserva)
+
+    } catch (err) {
+        res.status(500).send({ err })
+    }
+
+}
 export const createReserva = async (req, res) => {
 
     const {idTienda, tipoLocker, idUser, duracion} = req.body
