@@ -21,10 +21,10 @@ export const createReserva = async (req, res) => {
     
     try {
         const lockerReservado = await locker_svc.reservar(idTienda, tipoLocker);
-        console.log(lockerReservado)
+
         const idReserva = await svc.createReserva(idUser, duracion, lockerReservado)
         
-        res.status(200).send(idReserva)
+        res.status(200).json(idReserva)
     }
     catch (err) {
         console.log(err)

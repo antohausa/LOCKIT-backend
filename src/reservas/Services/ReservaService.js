@@ -28,19 +28,33 @@ export const getAll = async () => {
     }
 }
 
-export const createReserva = async (idUser, duracion, lockerReservado) => {
+export const getReservaBy = async (username) => {
+    let result=null
+    console.log(pool);
     try {
 
-        const currentDate=new Date().toLocaleTimeString('en-US', { hour12: false, 
-            hour: "numeric", 
-            minute: "numeric"});
+       await pool.connect();
+
+    result = await pool.query(`SELECT "idUsuarios" FROM usuarios WHERE username='${username}';`)
+        return result.rows;
+    }
+    catch (err) {
+        console.log(err)
+        return err
+    }
+}
+
+
+
+export const createReserva = async (idUser, duracion, lockerReservado) => {
+    try {
+        
         await pool.connect();
         let result = await pool.query(`INSERT INTO public.reservas("fkCliente", "fkLocker", "fechaInicio", "fechaFin", monto, activa)
-            VALUES (${idUser}, ${lockerReservado}, '2011-07-01', ${duracion}, 680, true);`)
+            VALUES (${idUser}, ${lockerReservado}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP + interval '${duracion} hours', 680, true) RETURNING "idReserva"`)
         
-        await pool.end()
         
-        return result.rows;
+        return result.rows[0].idReserva;
 
 
     }
